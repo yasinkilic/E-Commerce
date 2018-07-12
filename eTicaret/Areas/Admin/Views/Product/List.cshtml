@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<ETicModels.Entities.Product>
+<div class="container-fluid">
+    <table border="0" class="table table-hover">
+        <thead>
+            <tr>
+                <th>Ürün Resmi</th>
+                <th>Ürün Adı</th>
+                <th>Açıklama</th>
+                <th>Stok Miktarı</th>
+                <th>Fiyatı</th>
+                <th>Kategori</th>
+                <th colspan="2"></th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td><img src="@item.ImagePath" style="display:block; height:100px; width:100px; padding:0;" /></td>
+                    <td>@item.ProductName</td>
+                    <td>@item.Description</td>
+                    <td>@item.UnitsInStock</td>
+                    <td>@item.Price</td>
+                    <td>@item.CategoryID</td>
+                    <td>
+                        <a href="/Admin/Product/Update/@item.ID" class="btn btn-default">Güncelle</a>
+                        <a href="/Admin/Product/Delete/@item.ID" class="btn btn-default">Sil</a>
+                    </td>
+
+                </tr>
+            }
+
+
+        </tbody>
+
+    </table>
+</div>

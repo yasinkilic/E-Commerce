@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "SiparisTasarla";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="wrap1" class="container">
+    <div class="panel-info">
+        <div class="panel-heading">
+            Kutu Seçiniz
+        </div>
+        <div class="panel-body">
+            <div class="secilenimage">
+                <img id="secilen" class="img-thumbnail" />
+            </div>
+            <div class="tasarimwrap">
+                <div class="tasarimkutu"><img id="1" alt="DBeyazKutu" onclick="GetImage(this.id)" class="tasarimimage" src="~/Content/Images/DBeyazKutu.jpg" /></div>
+                <div class="tasarimkutu"><img id="2" alt="DSariKutu" onclick="GetImage(this.id)" class="tasarimimage" src="~/Content/Images/DSariKutu.jpg" /></div>
+                <div class="tasarimkutu"><img id="3" alt="YBeyazKutu" onclick="GetImage(this.id)" class="tasarimimage" src="~/Content/Images/YBeyazKutu.jpg" /></div>
+
+                <button onclick="Onay(this.id)" id="10" class="btn btn-default">Tamam</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="wrap2" class="container">
+    <div class="secilenimage">
+        <img id="secilen1" class="img-thumbnail" />
+    </div>
+    <div class="panel-default">
+        <div class="panel-heading">
+            Çiçek Seçiniz
+        </div>
+        <div class="panel-body">
+            <div class="tasarimwrap">
+                <div class="tasarimkutu"><img id="4" alt="Beyaz" onclick="GetImage1(this.id)" class="tasarimimage" src="~/Content/Images/Beyaz.jpg" /></div>
+                <div class="tasarimkutu"><img id="5" alt="Lila" onclick="GetImage1(this.id)" class="tasarimimage" src="~/Content/Images/Lila.jpg" /></div>
+                <div class="tasarimkutu"><img id="6" alt="Kirmizi" onclick="GetImage1(this.id)" class="tasarimimage" src="~/Content/Images/Kirmizi.jpg" /></div>
+                <button id="11" onclick="Onay(this.id)" class="btn btn-default">Tamam</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="wrap3" class="container">
+    <div class="secilenimage">
+        <img id="secilen2" class="img-thumbnail"/>
+    </div>
+    <div class="panel-default">
+        <div class="panel-heading">
+            Çekmece Ürünü Seçiniz
+        </div>
+        <div class="panel-body">
+            <div class="tasarimwrap">
+                <div class="tasarimkutu"><img id="7" alt="Jelibon" onclick="GetImage2(this.id)" class="tasarimimage" src="~/Content/Images/Jelibon.jpg" /></div>
+                <div class="tasarimkutu"><img id="8" alt="Makaron" onclick="GetImage2(this.id)" class="tasarimimage" src="~/Content/Images/Makaron.jpg" /></div>
+                <button id="12" onclick="Onay(this.id)" class="btn btn-default">Tamam</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="wrap4">
+</div>

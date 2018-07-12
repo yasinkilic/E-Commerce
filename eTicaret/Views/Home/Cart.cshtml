@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model eTicaret.Models.Sepet
+<div class="container"style="margin: 8em 0em 10em 5em;">
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Ürün Resmi</th>
+                <th>Ürün Adı</th>
+                <th>Adet</th>
+                <th>Fiyatı</th>
+                <th colspan="1"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+
+            @foreach (var item in Model.Urunler)
+            {
+
+                <tr>
+
+                    <td><img src="@item.ImagePath" style="display:block; height:100px; width:100px; padding:0;" /></td>
+                    <td>@item.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Price</td>
+                    <td>
+                        <a href="/Home/Delete/@item.ID" id="sil" class="btn btn-danger">Sil</a>
+                    </td>
+
+                </tr>
+
+            }
+
+        </tbody>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>Ara Toplam : @Model.ToplamTutar</td>
+                <td>Toplam (KDV Dahil) :@Model.ToplamTutarKdvli </td>
+                <td><a href="/Siparis/OrderCart" class="btn btn-success">Satın Al</a></td>
+            </tr>
+        </tbody>
+
+    </table>
+
+</div>

@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using PagedList
+@using PagedList.Mvc
+@model IPagedList<ETicModels.Entities.Product>
+<div id="home" class="slider">
+    <ul class="slides">
+        <li>
+            <img src="~/Content/Images/anniversary-bloom-blooming-196664.jpg"> <!-- banner -->
+            <div class="caption center-align">
+                <div class="single_home">
+                    <h1>Sevgiliye Özel</h1>
+                    <p>Özel Hissettiren Çiçeklerden Derlenmiş Aranjmanlar</p>
+                    <button type="button" class="btn btn-danger m-t-3 waves-effect waves-red">See More</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <img src="~/Content/Images/beautiful-bloom-blooming-916340.jpg"> <!-- banner -->
+            <div class="caption center-align">
+                <div class="single_home">
+                    <h1>Evleniyorum</h1>
+                    <p>Evlilik Temalı Aranjmanlar</p>
+                    <button type="button" class="btn btn-danger m-t-3 waves-effect waves-red">See More</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <img src="~/Content/Images/anniversary-bloom-blooming-196664.jpg"> <!-- banner -->
+            <div class="caption center-align">
+                <div class="single_home">
+                    <h1>Sevgiliye Özel</h1>
+                    <p>Özel Hissettiren Çiçeklerden Derlenmiş Aranjmanlar</p>
+                    <button type="button" class="btn btn-danger m-t-3 waves-effect waves-red">See More</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <img src="~/Content/Images/beautiful-bloom-blooming-916340.jpg"> <!-- banner -->
+            <div class="caption center-align">
+                <div class="single_home">
+                    <h1>Evleniyorum</h1>
+                    <p>Evlilik Temalı Aranjmanlar</p>
+                    <button type="button" class="btn btn-danger m-t-3 waves-effect waves-red">See More</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+    <div class="wrap">
+        @foreach (var item in Model)
+        {
+
+            <div class="productbox">
+                <a class="clearfix" href="/Home/AddToCart/@item.ID"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+                <a href="/Home/Details/@item.ID">
+                    <img class="image" src="@item.ImagePath" />
+                </a>
+                <p class="urunad">@item.ProductName</p>
+                <div class="price">
+                    <p class="pleft">@item.Price</p>
+                    <p class="pright">,00 TL+KDV</p>
+                </div>
+              
+                <a href="/Home/AddToCart/@item.ID" style="width:110px;" class="btn btn-default">Sepete Ekle</a>
+                <a href="/Home/Details/@item.ID" style="width:110px" class="btn btn-default">İncele</a>
+            </div>
+        }
+    </div>
+    <div class="pagination">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.PageNumbersOnly)
+    </div>

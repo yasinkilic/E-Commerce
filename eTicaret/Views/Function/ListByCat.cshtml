@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "ListByCat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using PagedList
+@using PagedList.Mvc
+@model IPagedList<ETicModels.Entities.Product>
+<div class="content">
+    <div class="wrap">
+        @foreach (var item in Model)
+        {
+
+            <div class="productbox">
+                <a href="/Home/AddToCart/@item.ID" class="clearfix"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+                <a href="/Home/Details/@item.ID">
+                    <img class="image" src="@item.ImagePath" />
+                </a>
+                <p class="urunad">@item.ProductName</p>
+                <p class="fiyat">@item.Price $</p>
+
+            </div>
+        }
+    </div>
+    <div class="pagination">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.PageNumbersOnly)
+    </div>
+</div>

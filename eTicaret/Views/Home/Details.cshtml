@@ -1,0 +1,199 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model ETicModels.Entities.Product
+<ul style="top:90px;" class="breadcrumb">
+    <li><a href="/Home/Index">Home</a></li>
+    <li><a href="/Function/ListByCat/@Model.CategoryID">@Model.Category.CategoryName</a></li>
+    <li class="active">@Model.ProductName</li>
+</ul>
+<div class="container" style="position:relative;margin-bottom:90px;top:90px;">
+    <div class="card">
+        <div class="row">
+            <aside class="col-sm-5 border-right">
+                <article class="gallery-wrap">
+                    <div class="img-big-wrap">
+                        <div> <a href="#"><img style="width:auto;height:420px;" src="@Model.ImagePath"></a></div>
+                    </div> <!-- slider-product.// -->
+                </article> <!-- gallery-wrap .end// -->
+            </aside>
+            <aside class="col-sm-7">
+                <article class="card-body p-5">
+                    <h3 class="title mb-3">@Model.ProductName</h3>
+                    <p class="price-detail-wrap">
+                        <span class="price h3 text-warning">
+                            <span class="num">@Model.Price</span><span class="currency">TL</span>
+                        </span>
+                    </p> <!-- price-detail-wrap .// -->
+                <br />
+                    <dl class="item-property">
+                        <dt>Açıklama</dt>
+                        <dd>
+                            <p>
+                                @Model.Description
+                            </p>
+                        </dd>
+                    </dl>
+                     <!-- item-property-hor .// -->
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <dl class="param param-inline">
+                                <dt>Quantity: </dt>
+                                <dd>
+                                    <select class="form-control form-control-sm" style="width:70px;">
+                                        <option> 1 </option>
+                                        <option> 2 </option>
+                                        <option> 3 </option>
+                                    </select>
+                                </dd>
+                            </dl>  <!-- item-property .// -->
+                        </div> <!-- col.// -->
+                        <div class="col-sm-7">
+                            <dl class="param param-inline">
+                                <dt>Size: </dt>
+                                <dd>
+                                    <label class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                        <span class="form-check-label">SM</span>
+                                    </label>
+                                    <label class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                        <span class="form-check-label">MD</span>
+                                    </label>
+                                    <label class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                        <span class="form-check-label">XXL</span>
+                                    </label>
+                                </dd>
+                            </dl>  <!-- item-property .// -->
+                        </div> <!-- col.// -->
+                    </div> <!-- row.// -->
+                    <hr>
+                    <a href="/Siparis/Order/@Model.ID" class="btn btn-lg btn-primary text-uppercase"> Satın Al </a>
+                    <a href="/Home/AddToCart/@Model.ID" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fa fa-shopping-cart"></i> Sepete Ekle </a>
+                </article> <!-- card-body.// -->
+            </aside> <!-- col.// -->
+        </div> <!-- row.// -->
+    </div> <!-- card.// -->
+
+</div>
+<!--container.//-->
+<br />
+<div class="commentbox">
+    @if (Model.Comments != null)
+    {
+        <h1>Yorumlar(@Model.Comments.Count())</h1>
+                            <div class="container-fluid">
+
+                                @for (int i = 0; i < Model.Comments.Count(); i++)
+                                {
+                                    <h6 style="font-weight:700">@Model.Comments[i].CmmntName</h6>
+                                    <div class="fltrfiyat"> @Model.Comments[i].Cmmnt</div>
+                                }
+                            </div>
+    }
+</div><hr />
+<div id="secmece" class="detaysecmececontainer">
+    <p style="font-weight:600;font-size:20px;font-style:italic">İlginizi Çekebilecek Ürünler</p>
+</div>
+<hr />
+<div class="commentarea">
+    <p class="baslik">Yorum Yapın</p>
+    <form class="commentform" action="/Home/Comment/@Model.ID" method="post">
+        <textarea id="CommentArea" style="background-color:white;" placeholder="Yorum Yap" name="Cmmnt"></textarea>
+        <input id="NameArea" class="form-control" style="background-color:white;width:480px;" type="text" placeholder="Adınızı Giriniz" name="CmmntName" required />
+        <button id="yorumbtn" class="btn btn-primary" type="submit">Gönder</button>
+    </form>
+</div>
+
+
+
+
+                @*<div class="navigasyon">
+                            <div class="breadcrumb_div">
+                                <a class="navlink" href="/Home/Index">
+                                    Anasayfa >
+                                </a>
+                            </div>
+                            <div class="breadcrumb_div">
+                                <a class="navlink" href="/Function/ListByCat/@Model.CategoryID">@Model.Category.CategoryName ></a>
+                            </div>
+                            <div class="breadcrumb_div">
+                                <a class="navlink" href="#">
+                                    @Model.ProductName
+                                </a>
+                            </div>
+                    </div>
+                    <div class="container" style="margin:50px;position:relative;top:90px;">
+
+                        <div class="detayurun">
+                            <img src="@Model.ImagePath" class="detayurunimg" />
+                            <div class="detayurunozellikleri">
+                                <div class="detayuruno">@Model.ProductName</div>
+                                <hr />
+                                <div class="detayurunfiyat">@Model.Price TL</div>
+                                <a class="btn btn-primary" href="/Home/AddToCart/@Model.ID">Sepete Ekle</a>
+                                <a class="btn btn-primary" href="/Siparis/Order/@Model.ID">Satın Al</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <p class="baslik">Ürün Açıklaması</p>
+                        <p class="aciklama">@Model.Description</p>
+                    </div>
+                    <br />
+                    <div class="commentbox">
+                        @if (Model.Comments != null)
+                        {
+                            <h1>Yorumlar(@Model.Comments.Count())</h1>
+                            <div class="container-fluid">
+
+                                @for (int i = 0; i < Model.Comments.Count(); i++)
+                                {
+                                <h6 style="font-weight:700">@Model.Comments[i].CmmntName</h6>
+                                <div class="fltrfiyat"> @Model.Comments[i].Cmmnt</div>
+                                }
+                            </div>
+                        }
+                    </div><hr />
+                    <div id="secmece" class="detaysecmececontainer">
+                        <p style="font-weight:600;font-size:20px;font-style:italic">İlginizi Çekebilecek Ürünler</p>
+                    </div>
+                    <hr />
+                    <div class="commentarea">
+                        <p class="baslik">Yorum Yapın</p>
+                        <form class="commentform" action="/Home/Comment/@Model.ID" method="post">
+                            <textarea id="CommentArea" style="background-color:white;" placeholder="Yorum Yap" name="Cmmnt"></textarea>
+                            <input id="NameArea" class="form-control" style="background-color:white;width:480px;" type="text" placeholder="Adınızı Giriniz" name="CmmntName" required />
+                            <button id="yorumbtn" class="btn btn-primary" type="submit">Gönder</button>
+                        </form>
+                    </div>*@
+                <script type="text/javascript">
+                    var id = @Model.CategoryID;
+                    var element = document.getElementById("secmece");
+                    setTimeout(RandomProducts,5000)
+                    function RandomProducts() {
+                        $(document).ready(function () {
+                            $.ajax({
+                                url:"/home/randomproducts/"+id,
+                                type:"post",
+                                success:function(e){
+                                    if (e.length==5) {
+                                        for (var i = 0; i < e.length; i++) {
+                                            var appnd='<div class="secmecekutu"><a href="/Home/Details/'+e[i].ID+'"><img class="secmeceimg" src="'+e[i].ImagePath+'"/></a>'+e[i].ProductName+'<p>'+e[i].Price+'TL</p></div>';
+                                            $("#secmece").append(appnd);
+                                        }
+
+                                    }else {
+                                        alert("Error");
+                                    }
+
+                                }
+                            });
+                        });
+                    }
+
+                </script>

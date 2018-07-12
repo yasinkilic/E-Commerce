@@ -1,0 +1,10 @@
+C:\Users\HpPro\documents\visual studio 2015\Projects\ETicMVC\ETicModels\bin\Debug\ETicModels.dll.config
+C:\Users\HpPro\documents\visual studio 2015\Projects\ETicMVC\ETicModels\bin\Debug\ETicModels.dll
+C:\Users\HpPro\documents\visual studio 2015\Projects\ETicMVC\ETicModels\bin\Debug\ETicModels.pdb
+C:\Users\HpPro\documents\visual studio 2015\Projects\ETicMVC\ETicModels\bin\Debug\EntityFramework.dll
+C:\Users\HpPro\documents\visual studio 2015\Projects\ETicMVC\ETicModels\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\HpPro\documents\visual studio 2015\Projects\ETicMVC\ETicModels\bin\Debug\EntityFramework.xml
+C:\Users\HpPro\documents\visual studio 2015\Projects\ETicMVC\ETicModels\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HpPro\documents\visual studio 2015\Projects\ETicMVC\ETicModels\obj\Debug\ETicModels.dll
+C:\Users\HpPro\documents\visual studio 2015\Projects\ETicMVC\ETicModels\obj\Debug\ETicModels.pdb
+C:\Users\HpPro\documents\visual studio 2015\Projects\ETicMVC\ETicModels\obj\Debug\ETicModels.csprojResolveAssemblyReference.cache

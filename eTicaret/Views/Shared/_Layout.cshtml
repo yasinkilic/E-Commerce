@@ -1,0 +1,277 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--<meta http-equiv="x-ua-compatible" content="ie=edge">-->
+
+    <title>eTicaret Çiçekçi</title>
+   
+  
+    <!-- Font Awesome -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,600,300,300italic,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+    <!-- Material Design Bootstrap -->
+    <link href="~/Content/css/materialize.css" rel="stylesheet">
+
+    <!-- Magnific-popup css -->
+    <link href="~/Content/css/magnific-popup.css" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Material Design Bootstrap -->
+    <!--<link href="css/progressbar.css" rel="stylesheet">-->
+    <!-- Material Design Bootstrap -->
+    <link href="~/Content/css/mdb.min.css" rel="stylesheet">
+ 
+
+    <!-- Your custom styles (optional) -->
+    <link href="~/Content/css/style.css" rel="stylesheet">
+    <link href="~/Content/css/responsive.css" rel="stylesheet">
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar-desktop">
+    <!-- Start your project here-->
+    <!--Navbar-->
+
+    <div class='preloader'><div class='loaded'>&nbsp;</div></div>
+
+    <nav class="navbar navbar-fixed-top navbar-light bg-faded">
+        <!--Collapse button-->
+        <div class="container">
+            <a href="#" data-activates="mobile-menu" class="button-collapse right"><i class="fa fa-bars black-text"></i></a>
+
+            <!--Content for large and medium screens-->
+            <div class="navbar-desktop">
+                <!--Navbar Brand-->
+                <a class="navbar-brand" style="overflow:visible" href="/Home/Index">
+                    <img style="position: relative;top: -14px;height: 75px;z-index: 2000;" src="~/Content/img/logo.png" alt="" />
+                </a>
+                <!--Links-->
+                <ul class="nav navbar-nav hidden-md-down text-uppercase">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/Index">Ana Sayfa <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/SiparisTasarla">Sipariş Tasarla</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Evlilik</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Açılış</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#newsletter">Faq</a>
+                    </li>
+                    <li class="nav-item">
+                          <span onclick="InputVisible()" id="srcspan" class="clearfix fa fa-search"><input id="srcinput" onkeyup="ShowResults(this.value)" type="search" placeholder="Ara" /></span><span id="close" onclick="InputHidden()" class="fa fa-close"></span>
+    <div class="results"><ul id="sonuc"></ul></div>
+                        </li>
+                    @if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                    {
+                    <li style="width:70px;" class="nav-item"><a href="/User/Login/" class="loginright fa fa-sign-in">Giriş Yap</a></li>
+                    }
+                    @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                    {
+                        <li style="width:90px;" id="sign" class="right nav-item">
+                            <p class="nav-link">@HttpContext.Current.User.Identity.Name</p>
+                            <div class="dropdown-content"> <a class="fa fa-sign-out" href="/User/Exit/">Çıkış Yap</a></div>
+                        </li>
+                    }
+                    
+</ul>
+
+            </div>
+
+            <!-- Content for mobile devices-->
+            <div class="navbar-mobile">
+
+                <ul class="side-nav" id="mobile-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home/Index">Ana Sayfa <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home/SiparisTasarla">Sipariş Tasarla</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#service">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#newsletter">Support</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!">Faq</a>
+                    </li>
+                    <li class="nav-item">
+                        <span onclick="InputVisible1()" id="srcspan1" class="clearfix fa fa-search"><input id="srcinput1" onkeyup="ShowResults1(this.value)" type="search" placeholder="Ara" /></span><span id="close1" onclick="InputHidden1()" class="fa fa-close"></span>
+                        <div class="results1"><ul id="sonuc1"></ul></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--/.Navbar-->
+
+
+
+    @RenderBody()
+
+    <section id="footer" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="main_footer_area white-text p-b-3">
+                    <div class="col-md-3">
+                        <div class="single_f_widget p-t-3 wow fadeInUp">
+                            <img src="img/logo.png" alt="" />
+                            <div class="single_f_widget_text">
+                                <p>
+                                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                                    The point of using Lorem Ipsum is that it has a more-or-less normal.
+                                </p>
+                                <div class="socail_f_widget">
+                                    <a href="#!"><i class="fa fa-facebook"></i></a>
+                                    <a href="#!"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#!"><i class="fa fa-twitter"></i></a>
+                                    <a href="#!"><i class="fa fa-vimeo"></i></a>
+                                    <a href="#!"><i class="fa fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="single_f_widget m-t-3 wow fadeInUp">
+                            <h4 class="text-lowercase">Some features</h4>
+                            <div class="single_f_widget_text f_reatures">
+                                <ul>
+                                    <li><i class="fa fa-check"></i>Lorem ipsum dolor sit amet</li>
+                                    <li><i class="fa fa-check"></i>Aliquam tincidunt cons ectetuer</li>
+                                    <li><i class="fa fa-check"></i>Vestibulum auctor dapibus con</li>
+                                    <li><i class="fa fa-check"></i>Lorem ipsum dolor sit amet auctor dapibus</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="single_f_widget m-t-3 wow fadeInUp">
+                            <h4 class="text-lowercase">Tags</h4>
+                            <div class="single_f_widget_text f_tags">
+                                <a href="#!">corporate</a>
+                                <a href="#!">agency</a>
+                                <a href="#!">portfolio</a>
+                                <a href="#!">blog</a>
+                                <a href="#!">elegant</a>
+                                <a href="#!">professional</a>
+                                <a href="#!">business</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="single_f_widget m-t-3 wow fadeInUp">
+                            <h4 class="text-lowercase">Flicker Posts</h4>
+                            <div class="single_f_widget_text f_flicker">
+                                <img src="" alt="" />
+                                <img src="" alt="" />
+                                <img src="" alt="" />
+                                <img src="" alt="" />
+                                <img src="" alt="" />
+                                <img src="" alt="" />
+                                <img src="" alt="" />
+                                <img src="" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_coppyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12">
+                        <div class="copyright_text m-t-2 text-xs-center">
+                            <p class="wow zoomIn" data-wow-duration="1s">Made by <a target="_black" href="#">YASİN KILIÇ</a> 2018. All Rights Reserved</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="socail_coppyright text-sm-right m-t-2 text-xs-center wow zoomIn">
+                            <a href="#!"><i class="fa fa-facebook"></i></a>
+                            <a href="#!"><i class="fa fa-twitter"></i></a>
+                            <a href="#!"><i class="fa fa-google-plus"></i></a>
+                            <a href="#!"><i class="fa fa-rss"></i></a>
+                            <a href="#!"><i class="fa fa-vimeo"></i></a>
+                            <a href="#!"><i class="fa fa-pinterest"></i></a>
+                            <a href="#!"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    
+    <!-- /Start your project here-->
+    <!-- SCRIPTS -->
+
+    <script src="~/Content/js/jquery-2.2.3.min.js"></script>
+   
+   
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="~/Content/js/tether.min.js"></script>
+
+    
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="~/Content/js/bootstrap.min.js"></script>
+
+    <script src="~/Content/js/Src.js"></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="~/Content/js/mdb.min.js"></script>
+
+    <!-- Wow js -->
+    <script type="text/javascript" src="~/Content/js/wow.min.js"></script>
+
+    <!-- Mixitup js -->
+    <script type="text/javascript" src="~/Content/js/jquery.mixitup.min.js"></script>
+
+    <!-- Magnific-popup js -->
+    <script type="text/javascript" src="~/Content/js/jquery.magnific-popup.js"></script>
+
+    <!-- accordion js -->
+    <script type="text/javascript" src="~/Content/js/accordion.js"></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="~/Content/js/materialize.js"></script>
+
+    <script>
+        $(".button-collapse").sideNav();
+    </script>
+
+    <!-- wow js active -->
+    <script type="text/javascript">
+        new WOW().init();
+    </script>
+
+    <script type="text/javascript" src="~/Content/js/plugins.js"></script>
+    <script type="text/javascript" src="~/Content/js/main.js"></script>
+
+
+</body>
+
+</html>

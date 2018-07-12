@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "OrderDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Sipariş Detayları</h2>
+@model IEnumerable<ETicModels.Entities.Order_Details>
+<div class="container-fluid">
+    <table border="0" class="table table-hover">
+        <thead>
+            <tr>
+                <th>Müşteri Adı</th>
+                <th>Ürün Adı</th>
+                <th>Fiyatı</th>
+                <th>Sipariş Tarihi</th>
+                <th>İstenen Tarih</th>
+                <th colspan="2"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Order.CustomerName</td>
+              <td>@item.ProductName</td>
+                    <td>@item.UnitPrice</td>
+                    <td>@item.Order.OrderDate</td>
+                    <td>@item.Order.RequiredDate</td>
+                    <td>
+                        <a href="/Admin/Siparis/Update/@item.OrderID" class="btn btn-default">Güncelle</a>
+                        <a href="/Admin/Siparis/Delete/@item.OrderID" class="btn btn-default">Sil</a>
+                    </td>
+
+                </tr>
+            }
+
+
+        </tbody>
+
+    </table>
+</div>
+
